@@ -1,5 +1,6 @@
 from random import randint
 
+# First group of crossword before the first test end at the 75th element
 crosswords_list = ["4/2 est de type ____",
     "(Le|la|l') ____ d'une fonction est le bloc de lignes indentées par rapport au mot-clef ____",
     "On communique avec une fonction en lui passant des ____",
@@ -76,7 +77,23 @@ crosswords_list = ["4/2 est de type ____",
     "Un diagramme de ____ est vulgairement appelé une patate",
     "a ____ (b or c) == (a and b) or (a and c)",
     "and, or, not sont des opérateurs ____",
+    "Une variable locale à une fonction f fait partie des ____ de f ou est ____ dans f"
+    "____ dénote l'absence de valeurs",
+    "La fonction ____(____,____,____) itère sur une suite arithmétique finie",
+    "\"Boucle\" se dit ____ en anglais",
+    "Tous les langages ____ offrent au moins une structure de boucle",
+    "L'affectation d'une variable ____ se fait en dehors de toute fonction",
+    "Pour pouvoir parcourir les chiffres d'un nombre, il faut le convertir en ____",
+    "Par convention, on nomme souvent une variable qui joue le rôle d'accumulateur",
+    "Le standard ____ 754 définit la représentation des ____",
+    "Dans le schéma de ____, la fonction de combinaison est une simple ____ de l'accumulateur",
+    "Une fonction qui ne retourne aucune valeur est une ____",
+    "La chaine vide \"\" est ____ pour l'opération de ____",
+    "Dans le schéma de ____ du meilleur élément, le nom de l'accumulateur se termine par ____",
+    "n peut être un nom acceptable sous certaines conditions, et seulement s'il s'agit d'un ____",
+    "Dans for c in s:, c est une ____ et s une valeur de type \"____\",
     ]
+
 
 solutions_list = ["float",
     "corps def",
@@ -154,13 +171,28 @@ solutions_list = ["float",
     "venn",
     "and",
     "booléens",
+    "arguments affectée",
+    "None",
+    "range start stop step",
+    "loop",
+    "impératifs",
+    "globale",
+    "chaine",
+    "acc",
+    "IEEE flottants",
+    "comptage incrémentation",
+    "procédure",
+    "neutre concaténation",
+    "recherche sofar",
+    "entier",
+    "variablediteration iterable",
 ]
 
 
 
 try_number = int(input("How many crosswords do you want? \nif 0, the programm do all crosswords\n>>> ")) # How many crosswords ?
 
- # Because we love pep8, max length for each line: 80 characters
+# Because we love pep8, max length for each line: 80 characters
 print("""\nAttention/Achtung:
     --> Answer aways in lowercase.
     --> Use accent, or 'ç' if needed,
