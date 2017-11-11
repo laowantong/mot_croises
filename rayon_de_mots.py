@@ -1,6 +1,10 @@
 from random import randint
 
+
 # First group of crossword before the first test end at the 75th element
+CROSSWORDS_FIRST_GROUP = 77
+
+
 crosswords_list = ["4/2 est de type ____",
     "(Le|la|l') ____ d'une fonction est le bloc de lignes indentées par rapport au mot-clef ____",
     "On communique avec une fonction en lui passant des ____",
@@ -77,21 +81,21 @@ crosswords_list = ["4/2 est de type ____",
     "Un diagramme de ____ est vulgairement appelé une patate",
     "a ____ (b or c) == (a and b) or (a and c)",
     "and, or, not sont des opérateurs ____",
-    "Une variable locale à une fonction f fait partie des ____ de f ou est ____ dans f"
+    "Une variable locale à une fonction f fait partie des ____ de f ou est ____ dans f",
     "____ dénote l'absence de valeurs",
     "La fonction ____(____,____,____) itère sur une suite arithmétique finie",
     "\"Boucle\" se dit ____ en anglais",
     "Tous les langages ____ offrent au moins une structure de boucle",
     "L'affectation d'une variable ____ se fait en dehors de toute fonction",
     "Pour pouvoir parcourir les chiffres d'un nombre, il faut le convertir en ____",
-    "Par convention, on nomme souvent une variable qui joue le rôle d'accumulateur",
+    "Par convention, on nomme souvent une variable ____ qui joue le rôle d'accumulateur",
     "Le standard ____ 754 définit la représentation des ____",
     "Dans le schéma de ____, la fonction de combinaison est une simple ____ de l'accumulateur",
     "Une fonction qui ne retourne aucune valeur est une ____",
     "La chaine vide \"\" est ____ pour l'opération de ____",
     "Dans le schéma de ____ du meilleur élément, le nom de l'accumulateur se termine par ____",
     "n peut être un nom acceptable sous certaines conditions, et seulement s'il s'agit d'un ____",
-    "Dans for c in s:, c est une ____ et s une valeur de type \"____\",
+    "Dans for c in s:, c est une ____ et s une valeur de type \"____\"",
     ]
 
 
@@ -172,39 +176,54 @@ solutions_list = ["float",
     "and",
     "booléens",
     "arguments affectée",
-    "None",
+    "none",
     "range start stop step",
     "loop",
     "impératifs",
     "globale",
     "chaine",
     "acc",
-    "IEEE flottants",
+    "ieee flottants",
     "comptage incrémentation",
     "procédure",
     "neutre concaténation",
     "recherche sofar",
     "entier",
-    "variablediteration iterable",
+    "variableditération iterable",
 ]
 
 
 
-try_number = int(input("How many crosswords do you want? \nif 0, the programm do all crosswords\n>>> ")) # How many crosswords ?
+try_number = input("How many crosswords do you want?\n"
+                   "    if '0', all crosswords are selected\n"
+                   "    if '01', crosswords down to the first test are selected\n"
+                   "    if '02', crosswords from the first to the second test are selected\n"
+                   ">>> ") # How many crosswords ?
 
 # Because we love pep8, max length for each line: 80 characters
-print("""\nAttention/Achtung:
-    --> Answer aways in lowercase.
-    --> Use accent, or 'ç' if needed,
-    --> If there are many solutions, then juste use a space.,
-    --> If the words needs "-", then don't write it \n""")
+print("Attention/Achtung:\n"
+    "--> Answer aways in lowercase.\n"
+    "--> Use accent, or 'ç' if needed,\n"
+    "--> If there are many solutions, then juste use a space.\n"
+    "--> If the words needs \"-\", then don't write it \n")
 
-if try_number == 0: # If user will do all crosswords
-    print(f"Let's go for {len(crosswords_list)} crosswords ! ;)")
+if try_number == '0':
     try_number = len(crosswords_list)
+    print(f"Let's go for {len(crosswords_list)} crosswords ! ;)")
+elif try_number == '01':
+    crosswords_list = crosswords_list[0:CROSSWORDS_FIRST_GROUP-1]
+    solutions_list = crosswords_list[0:CROSSWORDS_FIRST_GROUP-1]
+    try_number = CROSSWORDS_FIRST_GROUP
+elif try_number == '02': 
+    crosswords_list = crosswords_list[CROSSWORDS_FIRST_GROUP-1:]
+    solutions_list = solutions_list[CROSSWORDS_FIRST_GROUP-1:]
+    try_number = len(crosswords_list)
+else:
+    try_number = int(try_number)
+
 
 for _ in range(try_number):
-    number_in_list = randint(0, len(crosswords_list))
+    number_in_list = randint(0, len(crosswords_list)-1)
     crossword_for_this = crosswords_list[number_in_list]
     solution_for_this = solutions_list[number_in_list]
 
@@ -214,7 +233,7 @@ for _ in range(try_number):
     if answer == solution_for_this:
         print("Good !\n")
     else:
-        print(f"Solution is :{solution_for_this}\n")
+        print(f"Solution is : {solution_for_this}\n")
 
     crosswords_list.remove(crossword_for_this)
     solutions_list.remove(solution_for_this)
