@@ -44,7 +44,7 @@ crosswords_list = ["4/2 est de type ____",
     "Le ____ libère les emplacements occupés par des valeurs sans nom",
     "En python, on écrit les variables en ____",
     "i += 1 ____ la variable i",
-    "Chaque fois que Python évalue une expression, il stocke sa valeur à une certaine ____",
+    "Chaque fois que Python évalue une expression, il stocke sa valeur à une certaine ____", # FAUX
     "La variable SECOND_PER_MINUTE est considérée par convention comme une ____",
     "Une ____ produit une valeur, qui apparaît dans la zone ____ du notebook",
     "Le type de la fonction arythmetic_series est ____,",
@@ -58,13 +58,13 @@ crosswords_list = ["4/2 est de type ____",
     "Le type des chaînes Python est nommé ____",
     "L'instruction ____ C lève une une erreur si la condition C est fausse et ne fait rien sinon",
     "L'accès aux variables extérieures à une fonction n'est toléré que pour les ____",
-    "Si un identificateur n'est pas défini dans le cadre ____, il est cherché successivement dans les autres",
+    "Si un identificateur n'est pas défini dans le cadre ____, il est cherché successivement dans les autres", # FAUX
     "En programmation, on ne se répète pas (principe ____)",
     "Dans le ____-____ ____, on commence à tester le code avant même de l'avoir écrit",
     "Une variable locale ____ temporairement toute variable de même nom définie à l'e____térieur",
     "Pour évaluer une expression il faut connaître l'____ et la ____ de ses opérateurs",
     "Le langage support de ce cours d'____ est ____3",
-    "Une ____ est une notation qui représente une valeur fixe dans le code source d'un programme",
+    "Une ____ est une notation qui représente une valeur fixe dans le code source d'un programme", # FAUX
     "Le symbole * dénote la ____",
     "Une chaîne littérale est entourée de simples ou de doubles ____",
     "Peter Norvig recommande d'apprendre à programmer en ____",
@@ -78,7 +78,7 @@ crosswords_list = ["4/2 est de type ____",
     "Dans a op b, si op a la propriété de X, b n'est pas systématiquement évalué",
     "not (A and B) == (not A) or (not B) est une loi de ____",
     "(Un/une) ____ de parité s'exprime avec l'opérateur ____",
-    "Un diagramme de ____ est vulgairement appelé une patate",
+    "Un diagramme de ____ est vulgairement appelé une patate", # bon
     "a ____ (b or c) == (a and b) or (a and c)",
     "and, or, not sont des opérateurs ____",
     "Une variable locale à une fonction f fait partie des ____ de f ou est ____ dans f",
@@ -96,6 +96,8 @@ crosswords_list = ["4/2 est de type ____",
     "Dans le schéma de ____ du meilleur élément, le nom de l'accumulateur se termine par ____",
     "n peut être un nom acceptable sous certaines conditions, et seulement s'il s'agit d'un ____",
     "Dans for c in s:, c est une ____ et s une valeur de type \"____\"",
+    "NoneType est le type des ____",
+    "On recommande de ne tester l'égalité de deux flottants qu'à un ____ près",
     ]
 
 
@@ -190,9 +192,9 @@ solutions_list = ["float",
     "recherche sofar",
     "entier",
     "variableditération iterable",
+    "instructions",
+    "epsilon"
 ]
-
-
 
 try_number = input("How many crosswords do you want?\n"
                    "    if '0', all crosswords are selected\n"
@@ -212,7 +214,7 @@ if try_number == '0':
     print(f"Let's go for {len(crosswords_list)} crosswords ! ;)")
 elif try_number == '01':
     crosswords_list = crosswords_list[0:CROSSWORDS_FIRST_GROUP-1]
-    solutions_list = crosswords_list[0:CROSSWORDS_FIRST_GROUP-1]
+    solutions_list = solutions_list[0:CROSSWORDS_FIRST_GROUP-1]
     try_number = CROSSWORDS_FIRST_GROUP
 elif try_number == '02': 
     crosswords_list = crosswords_list[CROSSWORDS_FIRST_GROUP-1:]
@@ -233,7 +235,10 @@ for _ in range(try_number):
     if answer == solution_for_this:
         print("Good !\n")
     else:
-        print(f"Solution is : {solution_for_this}\n")
+        if ' ' in solution_for_this:
+            print(f"Solutions are : {solution_for_this}\n")
+        else:
+            print(f"Solution is : {solution_for_this}\n")
 
     crosswords_list.remove(crossword_for_this)
     solutions_list.remove(solution_for_this)
