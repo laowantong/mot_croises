@@ -8,3 +8,5 @@ Outil d'entraînement pour les mots croisés des cours d'algorithmique
 - Exécuter le script python
 
 *merci de me contacter pour tout problème*
+
+/play yeah
