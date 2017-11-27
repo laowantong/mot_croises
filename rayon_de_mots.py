@@ -98,6 +98,17 @@ crosswords_list = ["4/2 est de type ____",
     "Dans for c in s:, c est une ____ et s une valeur de type \"____\"",
     "NoneType est le type des ____",
     "On recommande de ne tester l'égalité de deux flottants qu'à un ____ près",
+    "La valeur des variables à un moment donné constitue l'____",
+    "L'utilisation de bibliothèques de ________ évite de ____ la ____",
+    "La fonction d'____ n'est pas ____ avec seulement des boucles for",
+    "L'introduction du ____ fait gagner en ____ et en ____ ce qu'on perd en ____",
+    "Même si on connaît ____ le nombre de périodes, le calcul des ________ s'écrit mieux avec un ____",
+    "La boucle while est la plus ____",
+    "La représentation ____ s'obtient par divisions successives par 2",
+    "Les variables d'itération de boucles ____ (____ en anglais) doivent être distinctes",
+    "On emploie une boucle while pour faire ____ quelque chose jusqu'à un état ____",
+    "Une boucle séquentielle ____ nécessairement",
+    "On emploie une boucle for (dite ____) lorsqu'on a une ____ à parcourir",
     ]
 
 
@@ -193,7 +204,18 @@ solutions_list = ["float",
     "entier",
     "variableditération iterable",
     "instructions",
-    "epsilon"
+    "epsilon",
+    "environnement",
+    "tiercepartie réinventer roue",
+    "ackermann calculable",
+    "while puissance rapidité sûreté",
+    "àlavance intérêtscomposés while",
+    "générale",
+    "binaire",
+    "imbriquées nested",
+    "évoluer terminal",
+    "termine",
+    "séquentielle séquence",
 ]
 
 try_number = input("How many crosswords do you want?\n"
@@ -231,8 +253,9 @@ for _ in range(try_number):
 
     print(crossword_for_this)
     answer = input(">>> ").lower()
+    answer = answer.replace(' ', '')
 
-    if answer == solution_for_this:
+    if answer == solution_for_this.replace(' ', ''):
         print("Good !\n")
     else:
         if ' ' in solution_for_this:
