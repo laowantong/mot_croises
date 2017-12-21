@@ -1,7 +1,6 @@
 from random import randint
 
-
-# First group of crossword before the first test end at the 75th element
+# First group of crosswords before the first test end at the 75th element
 CROSSWORDS_FIRST_GROUP = 77
 
 
@@ -109,6 +108,22 @@ crosswords_list = ["4/2 est de type ____",
     "On emploie une boucle while pour faire ____ quelque chose jusqu'à un état ____",
     "Une boucle séquentielle ____ nécessairement",
     "On emploie une boucle for (dite ____) lorsqu'on a une ____ à parcourir",
+    "Dans la plupart des langages de programmation, le premier élément d'un tableau a ____ comme ____",
+    "Une liste est délimitée par des ____, un tuple par des ____",
+    "La fonction ____(a,b) renvoie le ____ (a / b, a % b)",
+    "Le type tuple permet l'échange sans variable ____"
+    "Le type ____ de Python offre à la fois les opérations des listes et des tableaux",
+    "Une ____ est utile pour terminer l'accumulation d'entrées arbitraires"
+    "Un ____ est efficace pour l'accès ____"
+    "Lorsqu'une boucle s'exécute une fois en trop ou en moins, on parle d'erreur ____",
+    "Une boucle infinie comporte au moins une condition de sortie ____",
+    "Les éléments d'une liste, comme ceux d'un tuple, sont séparés par des ____",
+    "Une ____ est efficace pour l'insertion et la suppression",
+    "On emploie une boucle ________ lorsqu'un nombre infini d'_____ est possible",
+    "La condition du ____ est celle qui permet le plus ____ maintien de la boucle",
+    "Dans une boucle infinie, les états ____ ne rapprochent pas de l'état final ____",
+    "Le tuple ____ (anglais) permet de réaliser des affectations ____ ",
+    "La ____ des éléments d'un tuple dépend normalement de leur ____",
     ]
 
 
@@ -216,20 +231,34 @@ solutions_list = ["float",
     "évoluer terminal",
     "termine",
     "séquentielle séquence",
+    "zero indice",
+    "crochets parenthèses",
+    "divmod tuple",
+    "auxiliaire",
+    "list",
+    "sentinelle",
+    "tableau direct",
+    "offbyone",
+    "prématurée",
+    "virgules",
+    "liste",
+    "whiletrue itérations",
+    "while long",
+    "intermédiaires terminal",
+    "unpacking parallèles",
 ]
 
-try_number = input("How many crosswords do you want?\n"
-                   "    if '0', all crosswords are selected\n"
-                   "    if '01', crosswords down to the first test are selected\n"
-                   "    if '02', crosswords from the first to the second test are selected\n"
-                   ">>> ") # How many crosswords ?
+print("How many crosswords do you want?",
+        "    if '0', all crosswords are selected",
+        "    if '01', crosswords down to the first test are selected",
+        "    if '02', crosswords from the first to the second test are selected", sep='\n')
+try_number = input(">>> ") # How many crosswords ?
 
 # Because we love pep8, max length for each line: 80 characters
-print("Attention/Achtung:\n"
-    "--> Answer aways in lowercase.\n"
-    "--> Use accent, or 'ç' if needed,\n"
-    "--> If there are many solutions, then juste use a space.\n"
-    "--> If the words needs \"-\", then don't write it \n")
+print("Attention/Achtung:"
+      "--> Use accent, or 'ç' if needed,"
+      "--> If there are many solutions, then juste use a space."
+      "--> If the words needs \"-\", then don't write it ", sep='\n')
 
 if try_number == '0':
     try_number = len(crosswords_list)
