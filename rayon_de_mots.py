@@ -1,4 +1,5 @@
 from random import randint
+from unicodedata import normalize
 
 # First group of crosswords before the first test end at the 75th element
 CROSSWORDS_FIRST_GROUP = 77
@@ -256,9 +257,13 @@ try_number = input(">>> ") # How many crosswords ?
 
 # Because we love pep8, max length for each line: 80 characters
 print("Attention/Achtung:"
-      "--> Use accent, or 'ç' if needed,"
       "--> If there are many solutions, then juste use a space."
       "--> If the words needs \"-\", then don't write it ", sep='\n')
+
+def to_ascii(s):
+    return normalize('NFD', s).encode("ascii", "ignore").decode("utf8").upper()
+
+solutions_list = list(map(to_ascii, solutions_list))
 
 if try_number == '0':
     try_number = len(crosswords_list)
@@ -281,7 +286,7 @@ for _ in range(try_number):
     solution_for_this = solutions_list[number_in_list]
 
     print(crossword_for_this)
-    answer = input(">>> ").lower()
+    answer = to_ascii(input(">>> "))
     answer = answer.replace(' ', '')
 
     if answer == solution_for_this.replace(' ', ''):
